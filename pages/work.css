@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Philosopher', sans-serif;
+}
+
+html {
+    background-image: linear-gradient(to right top, #eb95c5, #cda3e5, #a2b3f7, #74c1f7, #5acae8, #54cfdf, #5ad3d3, #68d6c5, #65dbc3, #64dfbf, #66e4ba, #69e8b5);
+    filter: brightness(0.8);
+    position: relative;
+}
+
+.nav_container {
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    z-index: 9999;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_links {
+    border-radius: 30px;
+    padding: 10px 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    transition: 750ms;
+}
+
+.nav_scroll {
+    backdrop-filter: blur(10px) brightness(0.87);
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: 750ms;
+}
+
+.nav_link {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 30px;
+    font-weight: 500;
+    color: #fefeda;
+    text-decoration: none;
+    transition: 250ms;
+}
+
+.nav_active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav_link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main_container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: url('../images/expo.png');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.content_title {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 5rem;
+    font-weight: bold;
+    color: #fefeda;
+}
+
+.grid_span {
+    grid-column: span 2;
+}
+
+.description_container {
+    margin: 50px 50px 0 50px;
+    text-align: center;
+}
+
+.description_title {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fefeda;
+}
+
+.description_content {
+    margin-top: 20px;
+    padding: 30px 50px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+}
+
+.description_text_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description_text {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    text-align: justify;
+    color: #23174f;
+    float: left;
+}
+
+.description_image_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description_image {
+    width: 22rem;
+    border-radius: 50%;
+}
+    
+.info_container {
+    margin-top: 50px;
+    padding: 0 50px;
+    text-align: center;
+}
+
+.info_title {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fefeda;
+}
+
+.info_blocks {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 0.7fr 0.4fr 0.8fr;
+    gap: 20px;
+}
+
+.info_block {
+    border-radius: 30px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px 20px;
+    align-items: center;
+    -webkit-box-shadow: 11px 20px 47px -12px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 11px 20px 47px -12px rgba(34, 60, 80, 0.2);
+    box-shadow: 11px 20px 47px -12px rgba(34, 60, 80, 0.2);
+    color: #23174f;
+}
+
+.info_image {
+    height: 100px;
+    margin-right: 20px;
+}
+
+.info_text {
+    font-size: 1.5rem;
+}
+
+.gallery_container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.gallery_title {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fefeda;
+}
+
+.gallery {
+    margin-top: 20px;
+    padding: 0 50px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.gallery_image {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+.gallery_image:hover {
+    border-radius: 30px;
+    box-shadow: 0 32px 75px rgba(68, 77, 136, 0.2);
+}
+
+.gallery_full_image {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: 250ms;
+}
+
+.full_image {
+    width: 90%;
+    max-width: 500px;
+    transition: 250ms;
+}
+
+.full_close {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 1.2rem;
+    color: #fefeda;
+    cursor: pointer;
+}
+
+.social_container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social_title {
+    font-family: 'Arsenal', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fefeda;
+}
+
+.social_links {
+    margin-top: 20px;
+    padding: 0 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+}
+
+.social_link {
+    position: relative;
+    padding: 20px;
+    transition: 250ms;
+}
+
+.link_border {
+    position: absolute;
+    transition: 250ms;
+}
+
+.link_border:nth-child(1),
+.link_border:nth-child(3) {
+    width: 100%;
+    height: 4px;
+    background-color: #fefeda;
+}
+
+.link_border:nth-child(1) {
+    top: 0;
+    left: 0;
+    transform-origin: right;
+}
+
+.social_link:hover .link_border:nth-child(1) {
+    transform: scale(0);
+    transform-origin: left;
+}
+
+.link_border:nth-child(3) {
+    bottom: 0;
+    left: 0;
+    transform-origin: left;
+}
+
+.social_link:hover .link_border:nth-child(3) {
+    transform: scale(0);
+    transform-origin: right;
+}
+
+.link_border:nth-child(2),
+.link_border:nth-child(4) {
+    width: 4px;
+    height: 100%;
+    background-color: #fefeda;
+}
+
+.link_border:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    transform-origin: bottom;
+}
+
+.social_link:hover .link_border:nth-child(2) {
+    transform: scale(1);
+    transform-origin: top;
+}
+
+.link_border:nth-child(4) {
+    top: 0;
+    right: 0;
+    transform: scale(0);
+    transform-origin: top;
+}
+
+.social_link:hover .link_border:nth-child(4) {
+    transform: scale(1);
+    transform-origin: bottom;
+}
+
+.social_image {
+    width: 4rem;
+}
+
+@media only screen and (max-width: 1000px) {
+    .content_title {
+        font-size: 4rem;
+    }
+    .description_container {
+        margin: 50px 30px 0 30px;
+    }
+    .description_content {
+        padding: 20px 30px;
+    }
+    .info_image {
+        width: 3rem;
+    }
+    .gallery {
+        padding: 0 30px;
+    }
+    .social_container {
+        padding: 0 30px;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .nav_link {
+        padding: 10px 10px;
+        font-size: 1.2rem;
+    }
+    .description_content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .description_image {
+        width: 20rem;
+    }
+    .description_title,
+    .gallery_title,
+    .social_title {
+        font-size: 2rem;
+    }
+    .social_image {
+        width: 3rem;
+    }
+    .link_border:nth-child(1),
+    .link_border:nth-child(3) {
+        height: 2px;
+    }
+    .link_border:nth-child(2),
+    .link_border:nth-child(4) {
+        width: 2px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .description_image {
+        width: 15rem;
+    }
+    .description_text {
+        font-size: 1rem;
+    }
+    .social_links {
+        width: 100%;
+        padding: 0 2rem;
+    }
+    .social_link {
+        padding: 10px;
+    }
+    .social_image {
+        width: 2rem;
+    }
+}
